@@ -63,6 +63,17 @@ div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"]
     box-shadow: 0 2px 12px rgba(60,100,140,0.13) !important;
     min-height: 0 !important;
     align-self: flex-start !important;
+    color: #0f1a2e !important;
+}
+
+div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] p,
+div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] li,
+div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] h1,
+div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] h2,
+div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] h3,
+div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] h4,
+div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] [data-testid="stMarkdownContainer"] {
+    color: #0f1a2e;
 }
 
 /* Prevent columns from stretching to equal height */
@@ -163,6 +174,11 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 /* ── SUMMARY TEXT ── */
 .sum-content { color: #0f1a2e !important; }
 .sum-content * { color: #0f1a2e !important; }
+.sum-content + div,
+.sum-content + div [data-testid="stMarkdownContainer"],
+.sum-content + div [data-testid="stMarkdownContainer"] * {
+    color: #0f1a2e !important;
+}
 .sum-content p { color: #1e3a5a !important; font-size: 0.875rem !important; line-height: 1.75 !important; }
 .sum-content h2 { color: #0f1a2e !important; font-size: 0.92rem !important; font-weight: 700 !important; }
 .sum-content h3 { color: #2a4a6a !important; font-size: 0.84rem !important; font-weight: 700 !important; }
@@ -214,15 +230,24 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 
 /* ── CHAT INPUT ── */
 [data-testid="stChatInput"] {
-    background: #EBF4FA !important; border: 1.5px solid #88B0CC !important;
+    background: #FFFFFF !important; border: 1.5px solid #88B0CC !important;
     border-radius: 10px !important; padding: 0.2rem 0.2rem 0.2rem 0.6rem !important;
 }
 [data-testid="stChatInput"]:focus-within { border-color: #7C3AED !important; }
+[data-testid="stChatInput"] > div,
+[data-testid="stChatInput"] [data-baseweb="textarea"],
+[data-testid="stChatInput"] [data-baseweb="base-input"],
+[data-testid="stChatInput"] [data-baseweb="textarea"] > div,
+[data-testid="stChatInput"] [data-baseweb="base-input"] > div {
+    background: #FFFFFF !important;
+    color: #0f1a2e !important;
+}
 [data-testid="stChatInput"] textarea {
     color: #0f1a2e !important; font-family: 'Inter', sans-serif !important;
-    font-size: 0.875rem !important; background: transparent !important;
+    font-size: 0.875rem !important; background: #FFFFFF !important;
+    caret-color: #0f1a2e !important;
 }
-[data-testid="stChatInput"] textarea::placeholder { color: #6a90b0 !important; }
+[data-testid="stChatInput"] textarea::placeholder { color: #4a6a8a !important; opacity: 1 !important; }
 [data-testid="stChatInput"] button {
     background: linear-gradient(135deg,#7C3AED,#4F46E5) !important;
     border-radius: 8px !important; border: none !important; margin: 3px !important;
@@ -231,7 +256,18 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 
 /* ── ALERTS & SPINNER ── */
 div[data-testid="stAlert"] { border-radius: 10px !important; font-size: 0.83rem !important; }
-.stSpinner > div { color: #7C3AED !important; }
+div[data-testid="stAlert"],
+div[data-testid="stAlert"] *,
+div[data-testid="stNotification"],
+div[data-testid="stNotification"] * {
+    color: #0f1a2e !important;
+}
+div[data-testid="stSpinner"],
+div[data-testid="stSpinner"] *,
+.stSpinner,
+.stSpinner * {
+    color: #7C3AED !important;
+}
 
 /* ── FOOTER ── */
 .footer { text-align: center; margin-top: 2rem; font-size: 0.78rem; color: #2a4060; }
@@ -433,5 +469,3 @@ st.markdown("""
 <div class="footer">
   <span>♥</span> Built with Streamlit &nbsp;•&nbsp; Powered by Groq &amp; LangChain
 </div>""", unsafe_allow_html=True)
-
-
