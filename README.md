@@ -92,7 +92,7 @@ youtube-rag-chat/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/Raja-0720/youtube-rag-chat.git
+git clone https://https://github.com/Harishbabus0405/Youtube-RAG-chat
 cd youtube-rag-chat
 ```
 
