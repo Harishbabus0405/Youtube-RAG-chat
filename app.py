@@ -9,11 +9,11 @@ from utils.rag_chain import generate_answer
 from utils.summarizer import generate_summary
 
 # ---------------------------------------------------
-# PAGE CONFIG  — wide gives room for side-by-side
+# PAGE CONFIG - wide gives room for side-by-side
 # ---------------------------------------------------
 st.set_page_config(
     page_title="TubeMind",
-    page_icon="🎬",
+    page_icon="TM",
     layout="wide"
 )
 
@@ -30,7 +30,7 @@ html, body, [class*="css"] {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ── BACKGROUND ── */
+/* BACKGROUND */
 .stApp,
 [data-testid="stAppViewContainer"],
 [data-testid="stMain"],
@@ -46,14 +46,14 @@ section.main { background: #161954 !important; }
 .stDeployButton { display: none !important; }
 section[data-testid="stSidebar"] { display: none !important; }
 
-/* ── PAGE CENTERING ── */
+/* PAGE CENTERING */
 .main .block-container {
     max-width: 1080px !important;
     padding: 2rem 2rem 5rem 2rem !important;
     margin: 0 auto !important;
 }
 
-/* ── TOP-LEVEL HORIZONTAL BLOCK = the two main cards ── */
+/* TOP-LEVEL HORIZONTAL BLOCK = the two main cards */
 /* Target only the direct children of the outermost stHorizontalBlock */
 div[data-testid="stHorizontalBlock"]:first-of-type > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] {
     background: #e6e8e1 !important;
@@ -81,7 +81,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
     align-items: flex-start !important;
 }
 
-/* ── HERO ── */
+/* HERO */
 .hero { text-align: center; margin-bottom: 1.8rem; }
 .hero-title {
     font-size: 2.3rem; font-weight: 800;
@@ -99,7 +99,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 .badge { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; font-weight: 500; color: #fa0c30; }
 .badge-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
-/* ── SECTION LABELS ── */
+/* SECTION LABELS */
 .sec-label {
     display: flex; align-items: center; gap: 8px;
     font-size: 0.88rem; font-weight: 700;
@@ -111,7 +111,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
     color: #7C3AED;
 }
 
-/* ── CHAT HEADER ROW (pure HTML flex — no nested st.columns) ── */
+/* CHAT HEADER ROW (pure HTML flex - no nested st.columns) */
 .chat-header {
     display: flex;
     align-items: center;
@@ -132,7 +132,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 }
 .chat-clear-btn:hover { border-color: #E91E8C; color: #E91E8C; }
 
-/* ── URL INPUT ── */
+/* URL INPUT */
 .stTextInput label { display: none !important; }
 .stTextInput > div > div {
     background: #EBF4FA !important;
@@ -149,7 +149,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 .stTextInput input::placeholder { color: #6a90b0 !important; }
 .stTextInput input:focus { box-shadow: none !important; outline: none !important; }
 
-/* ── GENERATE BUTTON ── */
+/* GENERATE BUTTON */
 .stButton > button {
     background: linear-gradient(90deg, #E91E8C 0%, #7C3AED 55%, #4F46E5 100%) !important;
     color: #FFFFFF !important; border: none !important; border-radius: 10px !important;
@@ -162,16 +162,16 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 .stButton > button:hover { opacity: 0.85 !important; transform: translateY(-1px) !important; }
 .stButton > button:active { transform: translateY(0) !important; }
 
-/* ── DIVIDER ── */
+/* DIVIDER */
 .sec-divider { border: none; border-top: 1px solid #C0D8EC; margin: 1.1rem 0; }
 
-/* ── SUMMARY EMPTY STATE ── */
+/* SUMMARY EMPTY STATE */
 .sum-empty { text-align: center; padding: 1.8rem 1rem; }
 .sum-empty-icon { font-size: 1.8rem; display: block; margin-bottom: 0.5rem; }
 .sum-empty-title { font-size: 0.86rem; font-weight: 600; color: #4a6a8a; margin-bottom: 0.2rem; }
 .sum-empty-sub { font-size: 0.76rem; color: #6a90b0; }
 
-/* ── SUMMARY TEXT ── */
+/* SUMMARY TEXT */
 .sum-content { color: #0f1a2e !important; }
 .sum-content * { color: #0f1a2e !important; }
 .sum-content + div,
@@ -185,7 +185,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 .sum-content ul, .sum-content ol { color: #2a4a6a !important; font-size: 0.85rem !important; line-height: 1.75 !important; }
 .sum-content strong { color: #0f1a2e !important; font-weight: 600 !important; }
 
-/* ── CHAT EMPTY ── */
+/* CHAT EMPTY */
 .chat-empty { text-align: center; padding: 1.4rem 1rem; }
 .chat-empty-icon { font-size: 1.3rem; display: block; margin-bottom: 0.4rem; color: #88B0CC; }
 .chat-empty-title { font-size: 0.82rem; color: #4a6a8a; margin-bottom: 0.8rem; }
@@ -197,7 +197,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
     border-radius: 100px; padding: 4px 12px;
 }
 
-/* ── CHAT MESSAGES ── */
+/* CHAT MESSAGES */
 [data-testid="stChatMessage"] {
     background: transparent !important; border: none !important;
     padding: 0 !important; margin-bottom: 0.5rem !important;
@@ -228,7 +228,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 [data-testid="chatAvatarIcon-user"] { background: linear-gradient(135deg,#E91E8C,#7C3AED) !important; border-radius: 50% !important; }
 [data-testid="chatAvatarIcon-assistant"] { background: linear-gradient(135deg,#7C3AED,#4F46E5) !important; border-radius: 50% !important; }
 
-/* ── CHAT INPUT ── */
+/* CHAT INPUT */
 [data-testid="stChatInput"] {
     background: #FFFFFF !important; border: 1.5px solid #88B0CC !important;
     border-radius: 10px !important; padding: 0.2rem 0.2rem 0.2rem 0.6rem !important;
@@ -254,7 +254,7 @@ div[data-testid="stHorizontalBlock"]:first-of-type {
 }
 [data-testid="stChatInput"] button svg { color: white !important; }
 
-/* ── ALERTS & SPINNER ── */
+/* ALERTS & SPINNER */
 div[data-testid="stAlert"] { border-radius: 10px !important; font-size: 0.83rem !important; }
 div[data-testid="stAlert"],
 div[data-testid="stAlert"] *,
@@ -269,7 +269,7 @@ div[data-testid="stSpinner"] *,
     color: #7C3AED !important;
 }
 
-/* ── FOOTER ── */
+/* FOOTER */
 .footer { text-align: center; margin-top: 2rem; font-size: 0.78rem; color: #2a4060; }
 .footer span { color: #E91E8C; }
 </style>
@@ -285,7 +285,7 @@ if "messages"        not in st.session_state: st.session_state.messages        =
 if "do_clear"        not in st.session_state: st.session_state.do_clear        = False
 
 # Handle clear flag (set via HTML button via query param workaround is unreliable;
-# keep a Streamlit button hidden below instead — see right column)
+# keep a Streamlit button hidden below instead - see right column)
 if st.session_state.do_clear:
     st.session_state.messages = []
     st.session_state.do_clear = False
@@ -301,7 +301,7 @@ with st.sidebar:
             st.error("Please enter a YouTube URL.")
         else:
             try:
-                with st.spinner("Processing…"):
+                with st.spinner("Processing..."):
                     _vid = extract_video_id(_url)
                     _tr  = get_transcript(_vid)
                     st.session_state.summary = generate_summary(_tr)
@@ -319,7 +319,7 @@ with st.sidebar:
 # ---------------------------------------------------
 st.markdown("""
 <div class="hero">
-  <div class="hero-title">🎬 TubeMind <span class="ai">AI</span></div>
+  <div class="hero-title">TubeMind <span class="ai">AI</span></div>
   <div class="hero-sub">Summarize any YouTube video and chat with it using AI</div>
   <div class="hero-badges">
     <span class="badge"><span class="badge-dot" style="background:#E91E8C"></span>AI Powered</span>
@@ -335,31 +335,31 @@ st.markdown("""
 # ---------------------------------------------------
 col_left, col_right = st.columns([1, 1], gap="large")
 
-# ════════════════════════════════════════════════════
-# LEFT COLUMN — URL input + summary
-# ════════════════════════════════════════════════════
+# ==================================================
+# LEFT COLUMN - URL input + summary
+# ==================================================
 with col_left:
 
-    st.markdown('<div class="sec-label">🔗 Enter YouTube URL</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-label">Enter YouTube URL</div>', unsafe_allow_html=True)
 
     main_url = st.text_input(
         "url", placeholder="https://www.youtube.com/watch?v=...",
         label_visibility="collapsed", key="main_url"
     )
 
-    generate_btn = st.button("🚀 Generate Summary", key="gen_btn")
+    generate_btn = st.button("Generate Summary", key="gen_btn")
 
     if generate_btn:
         if not main_url:
             st.error("Please enter a YouTube URL.")
         else:
             try:
-                with st.spinner("Fetching transcript…"):
+                with st.spinner("Fetching transcript..."):
                     vid_id     = extract_video_id(main_url)
                     transcript = get_transcript(vid_id)
-                with st.spinner("Generating summary…"):
+                with st.spinner("Generating summary..."):
                     st.session_state.summary = generate_summary(transcript)
-                with st.spinner("Building knowledge index…"):
+                with st.spinner("Building knowledge index..."):
                     chunks     = create_chunks(transcript)
                     embeddings = load_embedding_model()
                     st.session_state.vector_store   = create_vector_store(chunks, embeddings)
@@ -370,7 +370,7 @@ with col_left:
                 st.error(f"Error: {str(e)}")
 
     st.markdown('<hr class="sec-divider">', unsafe_allow_html=True)
-    st.markdown('<div class="sec-label">📄 Video Summary</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-label">Video Summary</div>', unsafe_allow_html=True)
 
     if st.session_state.summary:
         st.markdown('<div class="sum-content">', unsafe_allow_html=True)
@@ -379,25 +379,25 @@ with col_left:
     else:
         st.markdown("""
         <div class="sum-empty">
-          <span class="sum-empty-icon">📋</span>
+          <span class="sum-empty-icon">Summary</span>
           <div class="sum-empty-title">Your video summary will appear here</div>
           <div class="sum-empty-sub">Click "Generate Summary" to get started</div>
         </div>""", unsafe_allow_html=True)
 
 
-# ════════════════════════════════════════════════════
-# RIGHT COLUMN — chat
-# ════════════════════════════════════════════════════
+# ==================================================
+# RIGHT COLUMN - chat
+# ==================================================
 with col_right:
 
-    # ── Chat header: label + clear button — pure HTML flex, NO nested st.columns ──
+    # Chat header: label + clear button - pure HTML flex, no nested st.columns
     st.markdown("""
     <div class="chat-header">
-      <div class="sec-label-purple">💬 Chat with Video</div>
+      <div class="sec-label-purple">Chat with Video</div>
     </div>""", unsafe_allow_html=True)
 
     # Clear button as a normal Streamlit button, styled small via CSS override
-    if st.button("🗑️ Clear chat", key="clear_chat"):
+    if st.button("Clear chat", key="clear_chat"):
         st.session_state.messages = []
         st.rerun()
 
@@ -433,7 +433,7 @@ with col_right:
     if not st.session_state.video_processed:
         st.markdown("""
         <div class="chat-empty">
-          <span class="chat-empty-icon">💬</span>
+          <span class="chat-empty-icon">Chat</span>
           <div class="chat-empty-title">Ask any question about the video...</div>
           <div class="chips">
             <span class="chip">What is the main topic?</span>
@@ -467,5 +467,5 @@ with col_right:
 # ---------------------------------------------------
 st.markdown("""
 <div class="footer">
-  <span>♥</span> Built with Streamlit &nbsp;•&nbsp; Powered by Groq &amp; LangChain
+  <span>+</span> Built with Streamlit &nbsp;|&nbsp; Powered by Groq &amp; LangChain
 </div>""", unsafe_allow_html=True)
